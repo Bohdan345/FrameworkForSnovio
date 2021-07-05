@@ -1,6 +1,5 @@
 package pages;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import seleniumElements.Button;
 import seleniumElements.Elements;
@@ -35,44 +34,56 @@ public class LoginPage {
     }
 
 
-    public void pressLoginButton() {
-        button.click(loginButton);
-
-    }
-
-    public LoginPage typeLogin() {
+    private LoginPage typeLogin() {
         fields.typeField(loginField, USER_LOGIN);
         return this;
     }
 
-    public LoginPage typePassword() {
+    private LoginPage typePassword() {
         fields.typeField(passwordField, USER_PASSWORD);
         return this;
     }
 
-    public LoginPage setLogin(String login) {
+    private LoginPage setLogin(String login) {
         fields.typeField(loginField, login);
         return this;
     }
 
-    public LoginPage setPassword(String password) {
+    private LoginPage setPassword(String password) {
         fields.typeField(passwordField, password);
         return this;
     }
 
+    private void pressLoginButton() {
+        button.click(loginButton);
 
-    private void checkLogIn() {
-
-        Assert.assertTrue(elements.waitTextToBe(listsText, "Lists"));
     }
 
+    public boolean checkLogIn() {
+
+        return elements.waitTextToBe(listsText, "Lists");
+    }
+
+
+    // тест для проврки логина
     public LoginPage loginTest(String login, String password) {
         goToBaseURl();
         setLogin(login);
         setPassword(password);
         pressLoginButton();
-        checkLogIn();
+
         return this;
+    }
+
+    // метод логирования
+    public LoginPage login() {
+        goToBaseURl();
+        typeLogin();
+        typePassword();
+        pressLoginButton();
+
+        return this;
+
     }
 
 

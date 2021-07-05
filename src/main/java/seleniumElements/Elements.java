@@ -11,21 +11,20 @@ public class Elements extends BaseElement {
 
 
 
-// ожидаем появления елемента в Dom  и видимости его на странице
     public WebElement waitElementVisible(By locator) {
         return getElementCondition(visibilityOfElementLocated(locator));
     }
 
 
-    public WebElement waitElementPresence(By locator) {
+    public WebElement waitElementPresenceLocated(By locator) {
         return getElementCondition(presenceOfElementLocated(locator));
     }
 
-    public WebElement waitElementClikable(By locator) {
+    public WebElement waitElementBeClikable(By locator) {
         return getElementCondition(elementToBeClickable(locator));
     }
 
-    public WebElement waitElementClikable(WebElement element) {
+    public WebElement waitElementBeClikable(WebElement element) {
         return getElementCondition(elementToBeClickable(element));
     }
 
@@ -33,6 +32,9 @@ public class Elements extends BaseElement {
     public boolean waitTextToBe(By locator, String text) {
         return getStateCondition(textToBe(locator, text));
 
+
     }
+
+
 
 }

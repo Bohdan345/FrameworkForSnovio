@@ -6,7 +6,7 @@ public class Button extends BaseElement {
 
 
     public void click(By locator) {
-        waitUtilClickable(locator).click();
+        waitUtilElementBeClickable(locator).click();
 
     }
 
