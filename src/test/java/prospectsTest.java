@@ -1,7 +1,10 @@
-import org.junit.Test;
+import MyListener.Listener;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.Prospect;
 
+@Listeners(Listener.class)
 public class prospectsTest {
 
 
@@ -12,9 +15,8 @@ public class prospectsTest {
 
         new Prospect()
                 .pressCreateFolderButton()
-                .setFolderName();
-        // .clickCreateButton()
-
-
+                .setFolderName()
+                .clickCreateButton()
+                .checkCreatedFolder();
     }
 }

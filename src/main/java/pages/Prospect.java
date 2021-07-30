@@ -1,7 +1,7 @@
 package pages;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import seleniumElements.Button;
 import seleniumElements.Elements;
 import seleniumElements.Fields;
@@ -20,6 +20,9 @@ public class Prospect {
     private static final By folderNameField = By.xpath("//input[@id='createNewList']");
     private static final By buttonCreate = By.xpath(" //input[@id='createNewList']//following::button[1]");
     private static final By folderName = By.xpath(" //span[@class='folder__name']");
+    private static final By allListsTable = By.xpath("//ul[@class='aside__list-box']");
+
+    private static final By listsItem = By.xpath(".//li");
 
 
     Button button = new Button();
@@ -43,6 +46,19 @@ public class Prospect {
     }
 
     public void checkCreatedFolder() {
-        Assert.assertTrue(elements.waitTextToBe(folderName, "Folder"));
+//        for (int i = 0; i < 20; i++) {
+//            System.out.println(elements.getListsName(allListsTable, listsItem));
+//        }
+
+
+//        WebElement element = null;
+//        element = elements.waitElementPresenceLocated(allListsTable);
+//        if (element != null)
+//            System.out.println("Element  = " + element);
+//
+//        return true;
+//    }
+        elements.sel(allListsTable);
     }
 }
+

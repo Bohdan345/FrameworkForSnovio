@@ -9,7 +9,7 @@ public class Listener extends InitDriver implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        System.out.println("Test Success  " + result.getName());
+        System.out.println("Test " + "'"+result.getName()+"'"+"- Success");
         InitDriver.getInstance().destroy();
 
 
@@ -17,21 +17,19 @@ public class Listener extends InitDriver implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        System.out.println("Test start  " + result.getName());
+        System.out.println("Test " + "'"+result.getName()+"'"+" start");
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        System.out.println("Test skipped  " + result.getName());
+        System.out.println("Test " + "'"+result.getName()+"'"+"- Skipped");
     }
 
-    @Override
-    public void onStart(ITestContext context) {
-        System.out.println("Test start " + context.getName());
-    }
+
 
     @Override
     public void onTestFailure(ITestResult result) {
-
+        System.out.println("Test " + "'"+result.getName()+"'"+"- Failure");
+        InitDriver.getInstance().destroy();
     }
 }

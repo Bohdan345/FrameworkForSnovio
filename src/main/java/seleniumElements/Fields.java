@@ -8,13 +8,13 @@ public class Fields extends BaseElement {
 
 
     public void typeField(By locator, String text) {
-        waitUtilElementVisible(locator).sendKeys(text);
+        waitElementVisibility(locator).sendKeys(text);
     }
 
     public void cleanTypeField(By locator, String text) {
 
-        waitUtilElementVisible(locator).clear();
-        waitUtilElementVisible(locator).sendKeys(text);
+        waitElementVisibility(locator).clear();
+        waitElementVisibility(locator).sendKeys(text);
 
     }
 

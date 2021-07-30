@@ -1,19 +1,13 @@
 package initialDriver;
-
-
 import org.openqa.selenium.WebDriver;
-
 import static utils.DataFromProperty.BROWSER;
-
 
 public class InitDriver {
 
     private static WebDriver driver = null;
     private static InitDriver initDriverInstance = null;
 
-
     protected InitDriver() {
-
 
     }
 
@@ -24,14 +18,12 @@ public class InitDriver {
         return driver;
     }
 
-
     public static InitDriver getInstance() {
         if (initDriverInstance == null)
             initDriverInstance = new InitDriver();
 
         return initDriverInstance;
     }
-
 
     public void destroy() {
 
